@@ -1,0 +1,42 @@
+body {
+    margin: 0px;
+    top: 0;
+}
+
+main {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.navbar ul {
+    list-style-type: none;
+    background: linear-gradient(to right, #55a4c5, whitesmoke) no-repeat fixed;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+.navbar li {
+    float: left;
+}
+
+.navbar a {
+    color: whitesmoke;
+    text-decoration: none;
+    padding: 10px 15px; /* Увеличава кликваемата зона */
+    display: flex; /* Подравнява текста и иконката в един ред */
+    align-items: center; /* Вертикално подравняване */
+    text-align: center;
+    backdrop-filter: blur(10%);
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 5px; /* Закръглени ъгли за по-добър визуален ефект */
+}
+
+.navbar a:hover {
+    background-color: #0656dc; /* Промяна на фона при задържане */
+    color: white; /* Запазва белия цвят на текста */
+}
+
+.navbar i {
+    margin-left: 8px; /* Разстояние между текста и иконката */
+}

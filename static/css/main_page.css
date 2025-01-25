@@ -1,0 +1,215 @@
+h1 {
+    color: #27c99a;
+    font-family: "Playfair Display", serif;
+}
+
+body {
+    background-image: url('images/compute-ea4c57a4.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+p {
+    background: linear-gradient(to left, #55a4c5, whitesmoke) no-repeat fixed;
+    font-family: 'Playfair Display', serif;
+    font-size: 45px;
+    text-align: left;
+    top: 10px
+}
+
+p2 {
+    color: #0c3777;
+    border-top: #55a4c5;
+    text-align: left;
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    border-radius: 40px;
+}
+
+form {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 16px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #dddddd;
+    font-family: 'Playfair Display', serif;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+form input[type="text"], form input[type="password"], form input[type="email"],
+form textarea {
+    width: 20%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid;
+    border-radius: 16px;
+    background: linear-gradient(to left, #55a4c5, whitesmoke) no-repeat fixed;
+}
+
+form textarea {
+    resize: vertical;
+}
+
+form input[type="submit"] {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.button-9 {
+    appearance: menulist-button;
+    backface-visibility: hidden;
+    border-radius: 6px;
+    border-width: 0;
+    box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset, rgba(50, 50, 93, .1) 0 2px 5px 0, rgba(0, 0, 0, .07) 0 1px 1px 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-family: 'Playfair Display', serif;
+    font-size: 130%;
+    height: 44px;
+    line-height: 2;
+    margin: 12px 0 0;
+    outline: none;
+    overflow: hidden;
+    padding: 0 25px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    transform: translateZ(0);
+    transition: all .2s, box-shadow .08s ease-in;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 25%;
+    background: linear-gradient(to left, #55a4c5, whitesmoke) no-repeat fixed;
+}
+
+p {
+    margin-top: 10px;
+}
+
+.button-9:disabled {
+    cursor: default;
+}
+
+.button-9:focus {
+    box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset, rgba(50, 50, 93, .2) 0 6px 15px 0, rgba(0, 0, 0, .1) 0 2px 2px 0, rgba(50, 151, 211, .3) 0 0 0 4px;
+}
+
+fieldset {
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: white;
+}
+
+.radio-select {
+    display: flex;
+    flex-direction: column;
+}
+
+.radio-select > div {
+    margin-bottom: 10px;
+}
+
+.radio-select input[type="radio"] {
+    margin-right: 10px;
+}
+
+.radio-select label {
+    display: flex;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+/* Add some custom hover and focus styles for accessibility */
+.radio-select input[type="radio"]:hover + label,
+.radio-select input[type="radio"]:focus + label {
+    color: #007BFF;
+}
+
+.radio-select input[type="radio"]:checked + label {
+    font-weight: bold;
+    color: #007BFF;
+}
+
+.comment-item {
+    display: flex;
+    align-items: flex-start;
+}
+
+.comment-avatar {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.comment-content {
+    text-align: left;
+    margin-left: 10px;
+    flex: 1;
+}
+
+.comment-author {
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.comment-text {
+    margin: 0;
+}
+
+.form-inline {
+    width: auto;
+    height: auto;
+}
+
+.form-inline div {
+    margin-bottom: 0;
+}
+
+.top-left-message {
+    position: fixed; /* Фиксира съобщението на екрана, дори при скрол */ /* Разстояние от горната част на страницата */
+    right: 10px; /* Разстояние от лявата страна на страницата */
+    color: white; /* Бял текст */
+    padding: 5px 10px; /* Вътрешни отстъпи за по-добра четимост */
+    font-size: 1.2em; /* Размер на текста */
+/
+}
+
+.h1-title {
+    text-align: right;
+    margin: 0;
+    padding: 2px;
+    color: #0572ba;
+    font-family: 'Playfair Display', serif;
+
+}
