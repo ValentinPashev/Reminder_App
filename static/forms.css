@@ -1,33 +1,3 @@
-h1 {
-    color: #27c99a;
-    font-family: "Playfair Display", serif;
-}
-
-body {
-    background-image: url('images/compute-ea4c57a4.png');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
-}
-
-p {
-    background: linear-gradient(to left, #55a4c5, whitesmoke) no-repeat fixed;
-    font-family: 'Playfair Display', serif;
-    font-size: 45px;
-    text-align: left;
-    top: 10px
-}
-
-p2 {
-    color: #0c3777;
-    border-top: #55a4c5;
-    text-align: left;
-    font-family: 'Playfair Display', serif;
-    font-size: 40px;
-    border-radius: 40px;
-}
-
 form {
     width: 100%;
     max-width: 800px;
@@ -194,22 +164,4 @@ legend {
 
 .form-inline div {
     margin-bottom: 0;
-}
-
-.top-left-message {
-    position: fixed; /* Фиксира съобщението на екрана, дори при скрол */ /* Разстояние от горната част на страницата */
-    right: 10px; /* Разстояние от лявата страна на страницата */
-    color: white; /* Бял текст */
-    padding: 5px 10px; /* Вътрешни отстъпи за по-добра четимост */
-    font-size: 1.2em; /* Размер на текста */
-/
-}
-
-.h1-title {
-    text-align: right;
-    margin: 0;
-    padding: 2px;
-    color: #0572ba;
-    font-family: 'Playfair Display', serif;
-
 }

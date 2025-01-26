@@ -1,8 +1,9 @@
 from django.contrib.auth import get_user_model
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+
 
 class CustomCreationForm(UserCreationForm):
-    class Meta:
+    class Meta(UserCreationForm.Meta):
         model = get_user_model()
         fields = ('username', 'email')
 
@@ -11,3 +12,8 @@ class CustomCreationForm(UserCreationForm):
 
         for fieldname in self.fields:
             self.fields[fieldname].help_text = None
+
+class CustomUserChangeForm(UserChangeForm):
+    class Meta(UserChangeForm.Meta):
+        model = get_user_model()
+        fields = '__all__'
