@@ -2,8 +2,8 @@ from django.contrib.auth.base_user import AbstractBaseUser
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import AbstractUser, PermissionsMixin
 from django.db import models
-
 from accounts.managers import AppUserManager
+
 
 
 class AppUser(AbstractBaseUser , PermissionsMixin):
@@ -57,3 +57,4 @@ class Profile(models.Model):
     last_name = models.CharField(
         max_length=100,
     )
+

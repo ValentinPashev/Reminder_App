@@ -20,6 +20,13 @@
                 <i class='bx bx-task'></i>
             </a>
         </li>
+        {% if request.user.is_authenticated %}
+        <li>
+            <a href="{% url 'create_task' %}">Create Task
+                <i class='bx bxs-plus-square'></i>
+            </a>
+        </li>
+        {% endif %}
         <li>
             <a href="#">About
                 <i class='bx bx-info-square'></i>
@@ -38,7 +45,9 @@
             </li>
         {% else %}
             <li>
-                <a href="{% url 'logout' %}" onclick="event.preventDefault(); document.getElementById('logout-form').submit()" class="menu-link"> Logout
+                <a href="{% url 'logout' %}"
+                   onclick="event.preventDefault(); document.getElementById('logout-form').submit()" class="menu-link">
+                    Logout
                     <i class='bx bxs-left-arrow-square'></i>
                 </a>
             </li>

@@ -22,7 +22,7 @@ form label {
 
 form input[type="text"], form input[type="password"], form input[type="email"],
 form textarea {
-    width: 20%;
+    width: 80%;
     padding: 10px;
     font-size: 16px;
     border: 1px solid;
@@ -80,88 +80,36 @@ p {
     margin-top: 10px;
 }
 
-.button-9:disabled {
-    cursor: default;
-}
-
-.button-9:focus {
-    box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset, rgba(50, 50, 93, .2) 0 6px 15px 0, rgba(0, 0, 0, .1) 0 2px 2px 0, rgba(50, 151, 211, .3) 0 0 0 4px;
-}
-
-fieldset {
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    padding: 20px;
-}
-
-legend {
-    font-size: 1.2em;
-    font-weight: bold;
-    color: white;
-}
-
-.radio-select {
-    display: flex;
-    flex-direction: column;
-}
-
-.radio-select > div {
-    margin-bottom: 10px;
-}
-
-.radio-select input[type="radio"] {
-    margin-right: 10px;
-}
-
-.radio-select label {
-    display: flex;
-    font-size: 1em;
-    cursor: pointer;
-}
-
-/* Add some custom hover and focus styles for accessibility */
-.radio-select input[type="radio"]:hover + label,
-.radio-select input[type="radio"]:focus + label {
-    color: #007BFF;
-}
-
-.radio-select input[type="radio"]:checked + label {
-    font-weight: bold;
-    color: #007BFF;
-}
-
-.comment-item {
-    display: flex;
-    align-items: flex-start;
-}
-
-.comment-avatar {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-}
-
-.comment-content {
-    text-align: left;
-    margin-left: 10px;
-    flex: 1;
-}
-
-.comment-author {
-    text-align: left;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.comment-text {
-    margin: 0;
-}
-
 .form-inline {
     width: auto;
     height: auto;
 }
 
-.form-inline div {
-    margin-bottom: 0;
+.custom-create-form {
+    width: 40%;
+    background: transparent;
+    text-align: center;
+    background-size: 100% 100%;
+    border-width: thick;
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+}
+
+.custom-create-form input[type="date"] {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 16px;
+    font-size: 16px;
+    background: linear-gradient(to left, #55a4c5, whitesmoke) no-repeat fixed;
+    color: #333;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    text-align: center;
+}
+
+.custom-create-form input[type="date"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
 }

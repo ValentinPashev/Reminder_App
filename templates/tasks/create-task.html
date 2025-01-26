@@ -1,0 +1,9 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+    <form class="custom-create-form" method="post">
+        {{ form }}
+        {% csrf_token %}
+        <button type="submit" class="button-9">Add Task</button>
+    </form>
+{% endblock %}
