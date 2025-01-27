@@ -18,3 +18,15 @@ class CreateTaskForm(forms.ModelForm):
         widgets = {
             'due_date': forms.DateInput(attrs={'type': 'date'}),
         }
+
+class SearchForm(forms.Form):
+    query = forms.CharField(
+        label='',
+        required=False,
+        max_length=35,
+        widget=forms.TextInput(
+            attrs={
+                'placeholder': 'Search for a task',
+            }
+        )
+    )
