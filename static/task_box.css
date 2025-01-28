@@ -37,3 +37,9 @@
 .task-box .task-status.overdue {
   background-color: #dc3545;
 }
+
+.task-box h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  font-family: "Roboto Light", sans-serif;
+}

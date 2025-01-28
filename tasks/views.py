@@ -1,10 +1,6 @@
-from datetime import datetime
-from lib2to3.fixes.fix_input import context
-
 from django.contrib.auth import get_user_model
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
-from django.utils.timezone import now
 from django.views.generic import CreateView, FormView, ListView, DetailView
 from accounts.models import Profile
 from tasks.forms import CreateTaskForm, SearchForm
