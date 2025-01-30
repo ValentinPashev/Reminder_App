@@ -3,12 +3,17 @@
 {% block content %}
     <div class="task-box">
     <h1>Task Name:</h1>
-        <h3>{{ task.name }}</h3>
+        <h3>{{ task.name }}
+            <a href="{% url 'task_done' task.pk %}">
+                <i class='bx bx-check' title="Mark as Done!"></i>
+            </a>
+        </h3>
         <h1>Task status:</h1>
         <h3>{{ task.status }}</h3>
         <h1>Date Created:</h1>
         <h3>{{ task.date_created }}</h3>
         <h1>Task Remaining time:</h1>
         <h3>{{ task.formatted_remaining_time }}</h3>
+        
     </div>
 {% endblock %}

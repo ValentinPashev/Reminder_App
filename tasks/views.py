@@ -1,5 +1,5 @@
 from django.contrib.auth import get_user_model
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, FormView, ListView, DetailView
 from accounts.models import Profile
@@ -31,12 +31,30 @@ class DashboardView(ListView, FormView):
 
     def get_queryset(self):
         user_profile = self.request.user.profile
-        queryset = self.model.objects.filter(profile=user_profile)
+        queryset = self.model.objects.filter(profile=user_profile).exclude(status='Done')
 
         return queryset
 
-#NEED TO COMBINE SOMEHOW THEESE 2
 
+class DoneDashboardView(ListView):
+    model = Tasks
+    template_name = 'tasks/task-done-dashboard.html'
+    context_object_name = 'tasks'
+
+    def get_queryset(self):
+        user_profile = self.request.user.profile
+        queryset = self.model.objects.filter(profile=user_profile).filter(status='Done')
+
+        return queryset
+
+
+def done(request, pk):
+    task = Tasks.objects.get(pk=pk)
+    task.status = 'Done'
+    task.save()
+
+    next_url = request.GET.get('next', 'dashboard')
+    return redirect(next_url)
 
 class TaskDetailsView(DetailView):
     model = Tasks
@@ -46,3 +64,4 @@ class TaskDetailsView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
+

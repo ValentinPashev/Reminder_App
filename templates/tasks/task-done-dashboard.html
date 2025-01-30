@@ -1,15 +1,13 @@
 {% extends 'common/base.html' %}
 {% block content %}
-    <a href="{% url 'done_dashboard' %}"><button>Go to done tasks!</button></a>
     {% for task in tasks %}
-        
         <div class="task-box">
             <a href="{% url 'task_details' task.pk %}">
                 <h3>{{ task.name }}</h3>
                 <p>{{ task.description }}</p>
-                <span class="task-status {% if task.status == 'Pending' %}pending{% elif task.status == 'Overdue' %}overdue{% endif %}">
+                <span class="task-status task.status == 'Done' done"></span>
                 {{ task.status|title }}
-            </span>
+            
             </a>
 
         </div>
