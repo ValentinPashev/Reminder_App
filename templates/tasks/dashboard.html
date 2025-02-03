@@ -1,6 +1,6 @@
 {% extends 'common/base.html' %}
 {% block content %}
-    <a href="{% url 'done_dashboard' %}"><button>Go to done tasks!</button></a>
+    <a href="{% url 'done_dashboard' %}"><button class="button-8">Go to done tasks!</button></a>
     {% for task in tasks %}
         
         <div class="task-box">
