@@ -1,3 +1,4 @@
+
 from django.contrib.auth import get_user_model
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
@@ -65,3 +66,12 @@ class TaskDetailsView(DetailView):
         context = super().get_context_data(**kwargs)
         return context
 
+
+def overdue(request, pk):
+    user_profile = get_object_or_404(Profile, user=request.user)
+    user_tasks = Tasks.objects.filter(profile=user_profile, status='Pending')
+
+    for task in user_tasks:
+        if task.status == 'Pending' and task.remaining < 0:
+            task.status = 'Overdue'
+            task.save()
