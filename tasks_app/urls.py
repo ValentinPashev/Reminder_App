@@ -7,6 +7,7 @@ urlpatterns = [
     path('create/', CreateTaskView.as_view(), name='create_task'),
     path('task_dashboard/', DashboardView.as_view(), name='dashboard'),
     path('done_tasks/', DoneDashboardView.as_view(), name='done_dashboard'),
+    path('refresh_tasks/', views.overdue, name="overdue"),
     path('<int:pk>/', include([
         path('task-details/', TaskDetailsView.as_view(), name='task_details'),
         path('done/', views.done, name='task_done'),

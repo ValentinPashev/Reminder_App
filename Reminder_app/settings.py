@@ -150,6 +150,13 @@ CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
 CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
 
+RQ_QUEUES = {
+    'default': {
+        'URL': 'redis://localhost:6379/0',
+        'DEFAULT_TIMEOUT': 360,
+    },
+}
+
 
 ##To be cont...
 #Need to check how to set up redis on my PC

@@ -40,3 +40,12 @@ main {
 .navbar i {
     margin-left: 8px; /* Разстояние между текста и иконката */
 }
+
+.icon-large {
+    font-size: 36px;
+    color: white;
+    position: absolute;
+    top:34%;
+    left: 16%;
+    transform: translate(-50%, -50%);
+}

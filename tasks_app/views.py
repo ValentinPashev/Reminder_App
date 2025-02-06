@@ -1,4 +1,4 @@
-
+from django.utils import timezone
 from django.contrib.auth import get_user_model
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
@@ -67,11 +67,14 @@ class TaskDetailsView(DetailView):
         return context
 
 
-def overdue(request, pk):
+def overdue(request):
     user_profile = get_object_or_404(Profile, user=request.user)
     user_tasks = Tasks.objects.filter(profile=user_profile, status='Pending')
 
     for task in user_tasks:
-        if task.status == 'Pending' and task.remaining < 0:
+        if task.status == 'Pending' and timezone.localtime(timezone.now()) > task.due_date:
             task.status = 'Overdue'
             task.save()
+
+    next_url = request.GET.get('next', 'dashboard')
+    return redirect(next_url)

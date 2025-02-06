@@ -23,11 +23,6 @@ class Tasks(models.Model):
     due_date = models.DateTimeField(
         help_text="Краен срок с дата и час"
     )
-    remaining = models.DurationField(
-        null=True,
-        blank=True,
-        help_text="Оставащо време до крайния срок"
-    )
 
     to_be_notified_on = models.DateTimeField(
         null=True,
@@ -56,15 +51,6 @@ class Tasks(models.Model):
         minutes, _ = divmod(remainder, 60)
         return f"{hours}:{minutes:02d}"
 
-    def is_overdue(self, save=True):
-        if timezone.localtime(timezone.now()) > self.due_date:
-            self.status = StatusChoices['Overdue']
-        else:
-            self.status = StatusChoices['Done']
-        if save:
-            self.save()
-
-        return self.status
 
     profile = models.ForeignKey(
         Profile,
