@@ -38,6 +38,9 @@
     background-color: #dc3545;
 }
 
+.task-box .task-status.done {
+    background-color: #099a22;
+}
 .task-box h1 {
     font-size: 1.8rem;
     font-weight: bold;

@@ -1,11 +1,13 @@
+from datetime import timedelta
 from django.utils import timezone
 from django.contrib.auth import get_user_model
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, FormView, ListView, DetailView
+from django.views.generic import CreateView, FormView, ListView, DetailView, UpdateView
 from accounts.models import Profile
-from tasks_app.forms import CreateTaskForm, SearchForm
+from tasks_app.forms import CreateTaskForm, SearchForm, EditTaskForm
 from tasks_app.models import Tasks
+
 
 UserModel = get_user_model()
 
@@ -67,14 +69,31 @@ class TaskDetailsView(DetailView):
         return context
 
 
+def add_one_hour(request, pk):
+    task = Tasks.objects.get(pk=pk)
+    task.due_date += timedelta(hours=1)
+    task.save()
+
+    return redirect('dashboard')
+
 def overdue(request):
     user_profile = get_object_or_404(Profile, user=request.user)
-    user_tasks = Tasks.objects.filter(profile=user_profile, status='Pending')
+    user_tasks = Tasks.objects.filter(profile=user_profile)
 
     for task in user_tasks:
         if task.status == 'Pending' and timezone.localtime(timezone.now()) > task.due_date:
             task.status = 'Overdue'
             task.save()
+        elif task.status == 'Overdue' and timezone.localtime(timezone.now()) < task.due_date:
+            task.status = 'Pending'
+            task.save()
 
     next_url = request.GET.get('next', 'dashboard')
     return redirect(next_url)
+
+class EditTaskView(UpdateView):
+    model = Tasks
+    form_class = EditTaskForm
+    template_name = 'tasks/edit-tasks.html'
+    success_url = reverse_lazy('dashboard')
+

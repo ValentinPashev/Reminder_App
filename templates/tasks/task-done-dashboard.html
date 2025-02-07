@@ -5,8 +5,9 @@
             <a href="{% url 'task_details' task.pk %}">
                 <h3>{{ task.name }}</h3>
                 <p>{{ task.description }}</p>
-                <span class="task-status task.status == 'Done' done"></span>
+                <span class="task-status {% if task.status == 'Done' %}done{% endif %}"></span>
                 {{ task.status|title }}
+
             
             </a>
 

@@ -9,14 +9,13 @@ class BaseTaskForm(forms.ModelForm):
         fields = '__all__'
 
 
-class CreateTaskForm(forms.ModelForm):
+class CreateTaskForm(BaseTaskForm):
     class Meta:
         model = Tasks
-        fields = ('name', 'description', 'due_date',)
-
+        exclude = ('to_be_notified_on', 'profile', 'status',)
         widgets = {
-            'due_date': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
-        }
+                'due_date': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
+            }
 
 class SearchForm(forms.Form):
     query = forms.CharField(
@@ -29,3 +28,6 @@ class SearchForm(forms.Form):
             }
         )
     )
+
+class EditTaskForm(CreateTaskForm):
+    pass

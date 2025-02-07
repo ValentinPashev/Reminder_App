@@ -119,6 +119,17 @@ p {
     position: relative;
 }
 
+.custom-edit-form {
+    width: 40%;
+    background: transparent;
+    text-align: center;
+    background-size: 100% 100%;
+    border-width: thick;
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+}
+
 .custom-create-form input[type="datetime-local"] {
     width: 80%;
     padding: 10px;
