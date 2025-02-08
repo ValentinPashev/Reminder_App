@@ -11,7 +11,7 @@ urlpatterns = [
     path('<int:pk>/', include([
         path('task-details/', TaskDetailsView.as_view(), name='task_details'),
         path('done/', views.done, name='task_done'),
-        path('add_time/', views.add_one_hour, name='add_one_hour'),
+        path('add_time/', views.add_time, name='add_time'),
         path('edit_task/', EditTaskView.as_view(), name='edit_task'),
     ])),
 ]

@@ -4,24 +4,27 @@
     <div class="task-box">
         <h1>Task Name:</h1>
         <h3>{{ task.name }}
-            <a href="{% url 'task_done' task.pk %}">
-                <i class='bx bx-check' title="Mark as Done!"></i>
-            </a>
-            <a href="{% url 'add_one_hour' task.pk %}">
-                <i class='bx bx-message-alt-add' title="Add 1 Hour"></i>
-            </a>
-            <a href="{% url 'edit_task' task.pk %}">
+            {% if task.status != 'Done' %}
+                <a href="{% url 'task_done' task.pk %}">
+                    <i class='bx bx-check' title="Mark as Done!"></i>
+                </a>
+                <a href="{% url 'add_time' task.pk %}">
+                    <i class='bx bx-message-alt-add' title="Add 1 Hour"></i>
+                </a>
                 <a href="{% url 'edit_task' task.pk %}">
                     <i class='bx bxs-edit-alt' title="Edit Task"></i>
                 </a>
-            </a>
+            {% endif %}
         </h3>
+
         <h1>Task status:</h1>
         <h3>{{ task.status }}</h3>
+        
         <h1>Date Created:</h1>
         <h3>{{ task.date_created }}</h3>
+        
         <h1>Task Remaining time:</h1>
         <h3>{{ task.formatted_remaining_time }}</h3>
-
+    
     </div>
 {% endblock %}

@@ -3,6 +3,13 @@ h1 {
     font-family: "Playfair Display", serif;
 }
 
+
+h3{
+    color: #27c99a;
+    font-family: "Playfair Display", serif;
+    font-weight: bold;
+    font-size: 1rem;
+}
 body {
     background-image: url('images/compute-ea4c57a4.png');
     background-repeat: no-repeat;

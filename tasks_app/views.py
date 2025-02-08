@@ -1,11 +1,11 @@
 from datetime import timedelta
 from django.utils import timezone
 from django.contrib.auth import get_user_model
-from django.shortcuts import get_object_or_404, redirect
+from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, FormView, ListView, DetailView, UpdateView
 from accounts.models import Profile
-from tasks_app.forms import CreateTaskForm, SearchForm, EditTaskForm
+from tasks_app.forms import CreateTaskForm, SearchForm, EditTaskForm, AddingHoursForm
 from tasks_app.models import Tasks
 
 
@@ -69,12 +69,21 @@ class TaskDetailsView(DetailView):
         return context
 
 
-def add_one_hour(request, pk):
+def add_time(request, pk):
     task = Tasks.objects.get(pk=pk)
-    task.due_date += timedelta(hours=1)
-    task.save()
+    form = AddingHoursForm()
+    if request.method == "POST":
+        form = AddingHoursForm(request.POST)
+        if form.is_valid():
+            task.due_date += timedelta(hours=form.cleaned_data['number'])
+            task.save()
+            context = {
+                'task': task,
+                'form': form,
+            }
+            return redirect('dashboard')
 
-    return redirect('dashboard')
+    return render(request, 'tasks/add_time.html', {'form': form, 'task': task})
 
 def overdue(request):
     user_profile = get_object_or_404(Profile, user=request.user)

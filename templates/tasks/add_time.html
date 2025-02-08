@@ -1,0 +1,15 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+    <div class="single-number-form">
+        <h1>Task Name: {{ task.name }}</h1>
+        <h1>Adding additional time</h1>
+        <form method="POST" action="{% url 'add_time' task.pk %}">
+            {% csrf_token %}
+            <label for="number">Add hours:</label>
+            <input type="number" id="number" name="number" min="1" step="1" required>
+            <button type="submit">Add</button>
+        </form>
+        <h3>&#x2022; Please note that adding additional time to certain task needs to be approved from project manager or team leader! Any type of increasing time without permission will be sanctioned!</h3>
+    </div>
+{% endblock %}

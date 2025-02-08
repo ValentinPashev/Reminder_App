@@ -31,3 +31,7 @@ class SearchForm(forms.Form):
 
 class EditTaskForm(CreateTaskForm):
     pass
+
+
+class AddingHoursForm(forms.Form):
+    number = forms.IntegerField()
