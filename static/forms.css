@@ -87,7 +87,7 @@ form input[type="submit"]:hover {
     line-height: 2;
     margin: 8px 0 0;
     padding: 0 25px;
-    position: relative;
+    position: absolute;
     text-align: center;
     text-transform: none;
     transform: translateZ(0);
@@ -97,6 +97,9 @@ form input[type="submit"]:hover {
     touch-action: manipulation;
     width: 13%;
     background: linear-gradient(to left, #55a4c5, whitesmoke) no-repeat fixed;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 p {
@@ -117,6 +120,23 @@ p {
     border-radius: 10px;
     padding: 20px;
     position: relative;
+}
+
+.custom-delete-form {
+    width: 40%;
+    background: transparent;
+    text-align: center;
+    background-size: 100% 100%;
+    border-width: thick;
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+}
+
+.custom-delete-form p {
+    display: block;
+    color: red;
+    background: transparent;
 }
 
 .custom-edit-form {

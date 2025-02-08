@@ -3,9 +3,9 @@ from django.utils import timezone
 from django.contrib.auth import get_user_model
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, FormView, ListView, DetailView, UpdateView
+from django.views.generic import CreateView, FormView, ListView, DetailView, UpdateView, DeleteView
 from accounts.models import Profile
-from tasks_app.forms import CreateTaskForm, SearchForm, EditTaskForm, AddingHoursForm
+from tasks_app.forms import CreateTaskForm, SearchForm, EditTaskForm, AddingHoursForm, DeleteTaskForm
 from tasks_app.models import Tasks
 
 
@@ -106,3 +106,13 @@ class EditTaskView(UpdateView):
     template_name = 'tasks/edit-tasks.html'
     success_url = reverse_lazy('dashboard')
 
+class DeleteTaskView(DeleteView, FormView):
+    model = Tasks
+    form_class = DeleteTaskForm
+    template_name = 'tasks/delete-task.html'
+    success_url = reverse_lazy("dashboard")
+
+    def get_initial(self):
+        pk = self.kwargs.get(self.pk_url_kwarg)
+        task = Tasks.objects.get(pk=pk)
+        return task.__dict__

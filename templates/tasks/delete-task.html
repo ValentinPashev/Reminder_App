@@ -1,0 +1,12 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+    <form class="custom-delete-form" method="post">
+        <div class="w3-panel w3-red">
+            <p>Red often indicates a dangerous or negative situation.</p>
+            {{ form }}
+            {% csrf_token %}
+            <button type="submit" class="button-9">Delete Task</button>
+        </div>
+    </form>
+{% endblock %}

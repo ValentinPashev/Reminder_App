@@ -1,5 +1,6 @@
 from django import forms
 
+from tasks_app.mixins import DisableFieldsMixin
 from tasks_app.models import Tasks
 
 
@@ -7,12 +8,13 @@ class BaseTaskForm(forms.ModelForm):
     class Meta:
         model = Tasks
         fields = '__all__'
+        exclude = ('to_be_notified_on', 'profile', 'status',)
 
 
 class CreateTaskForm(BaseTaskForm):
     class Meta:
         model = Tasks
-        exclude = ('to_be_notified_on', 'profile', 'status',)
+        fields = ('name', 'description', 'due_date')
         widgets = {
                 'due_date': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
             }
@@ -35,3 +37,6 @@ class EditTaskForm(CreateTaskForm):
 
 class AddingHoursForm(forms.Form):
     number = forms.IntegerField()
+
+class DeleteTaskForm(BaseTaskForm, DisableFieldsMixin):
+    disabled_fields = ('__all__',)

@@ -1,7 +1,8 @@
 from django.urls import path, include
 
 from tasks_app import views
-from tasks_app.views import CreateTaskView, DashboardView, TaskDetailsView, DoneDashboardView, EditTaskView
+from tasks_app.views import CreateTaskView, DashboardView, TaskDetailsView, DoneDashboardView, EditTaskView, \
+    DeleteTaskView
 
 urlpatterns = [
     path('create/', CreateTaskView.as_view(), name='create_task'),
@@ -13,5 +14,6 @@ urlpatterns = [
         path('done/', views.done, name='task_done'),
         path('add_time/', views.add_time, name='add_time'),
         path('edit_task/', EditTaskView.as_view(), name='edit_task'),
+        path('delete/', DeleteTaskView.as_view(), name='delete'),
     ])),
 ]
