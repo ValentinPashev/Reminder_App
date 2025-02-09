@@ -3,13 +3,12 @@ from django.contrib.auth import get_user_model
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, FormView, ListView, DetailView, UpdateView, DeleteView
-from win32comext.shell.demos.servers.folder_view import tasks
-
 from accounts.models import Profile
 from tasks_app.forms import CreateTaskForm, SearchForm, EditTaskForm, AddingHoursForm, DeleteTaskForm, SetNewDueDateForm
 from tasks_app.models import Tasks
 from django.utils import timezone
 
+from tasks_app.script import check_due_dates
 
 UserModel = get_user_model()
 
@@ -118,6 +117,7 @@ def overdue(request):
             task.status = 'Pending'
             task.save()
 
+    check_due_dates(request)
     next_url = request.GET.get('next', 'dashboard')
     return redirect(next_url)
 
