@@ -1,5 +1,4 @@
 from datetime import timedelta
-from django.utils import timezone
 from django.contrib.auth import get_user_model
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy
@@ -7,6 +6,7 @@ from django.views.generic import CreateView, FormView, ListView, DetailView, Upd
 from accounts.models import Profile
 from tasks_app.forms import CreateTaskForm, SearchForm, EditTaskForm, AddingHoursForm, DeleteTaskForm
 from tasks_app.models import Tasks
+from django.utils import timezone
 
 
 UserModel = get_user_model()
@@ -116,3 +116,6 @@ class DeleteTaskView(DeleteView, FormView):
         pk = self.kwargs.get(self.pk_url_kwarg)
         task = Tasks.objects.get(pk=pk)
         return task.__dict__
+
+
+
