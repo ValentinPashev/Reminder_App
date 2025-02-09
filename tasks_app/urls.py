@@ -13,6 +13,8 @@ urlpatterns = [
         path('task-details/', TaskDetailsView.as_view(), name='task_details'),
         path('done/', views.done, name='task_done'),
         path('add_time/', views.add_time, name='add_time'),
+        path('choose_time_option/', views.choose_time_set_option, name='choose_time_set_option'),
+        path('set_new_duedate/', views.set_new_due_date, name='set_new_due_date'),
         path('edit_task/', EditTaskView.as_view(), name='edit_task'),
         path('delete/', DeleteTaskView.as_view(), name='delete'),
     ])),

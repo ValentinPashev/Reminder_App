@@ -21,7 +21,7 @@ class Tasks(models.Model):
     )
 
     due_date = models.DateTimeField(
-        help_text="Краен срок с дата и час"
+        help_text="Due date with time and hour"
     )
 
     to_be_notified_on = models.DateTimeField(

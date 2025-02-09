@@ -57,10 +57,10 @@ form input[type="submit"]:hover {
     box-sizing: border-box;
     cursor: pointer;
     font-family: 'Playfair Display', serif;
-    font-size: 130%;
+    font-size: 100%;
     height: 44px;
     line-height: 2;
-    margin: 12px 0 0;
+    margin: 6px 0 0;
     outline: none;
     overflow: hidden;
     padding: 0 25px;
@@ -189,6 +189,24 @@ p {
 
 }
 
+.single-number-form input[type="datetime-local"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+.single-date-form {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 16px;
+    font-size: 16px;
+    background: linear-gradient(to left, #55a4c5, whitesmoke) no-repeat fixed;
+    color: #333;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    text-align: center;
+}
+
 .danger-box {
     background-color: #ffcccc; /* Светло червен фон */
     color: #cc0000; /* Тъмен червен текст */
@@ -208,4 +226,51 @@ p {
 .danger-box .icon {
     font-size: 40px; /* По-голям размер на иконата */
     margin-bottom: 5px; /* Разстояние между иконата и текста */
+}
+
+
+/*______________________________________*/
+
+
+.single-date-form {
+    width: 40%;
+    padding: 20px;
+    background: transparent;
+    border-radius: 10px;
+    font-family: "Playfair Display", serif;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.single-date-form input[type="date"] {
+    width: 80%;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 25px; /* Закръглени ръбове */
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+    outline: none;
+    text-align: center;
+}
+
+.single-date-form input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1); /* За по-добър изглед в тъмни дизайни */
+}
+
+.single-date-form button {
+    padding: 10px 20px;
+    border-radius: 20px;
+    background: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.single-date-form button:hover {
+    background: #ffcc00;
 }

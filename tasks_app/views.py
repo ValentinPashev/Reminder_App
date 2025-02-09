@@ -3,8 +3,10 @@ from django.contrib.auth import get_user_model
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, FormView, ListView, DetailView, UpdateView, DeleteView
+from win32comext.shell.demos.servers.folder_view import tasks
+
 from accounts.models import Profile
-from tasks_app.forms import CreateTaskForm, SearchForm, EditTaskForm, AddingHoursForm, DeleteTaskForm
+from tasks_app.forms import CreateTaskForm, SearchForm, EditTaskForm, AddingHoursForm, DeleteTaskForm, SetNewDueDateForm
 from tasks_app.models import Tasks
 from django.utils import timezone
 
@@ -83,7 +85,26 @@ def add_time(request, pk):
             }
             return redirect('dashboard')
 
-    return render(request, 'tasks/add_time.html', {'form': form, 'task': task})
+    return render(request, 'tasks/adding_time_by_hours.html', {'form': form, 'task': task})
+
+def set_new_due_date(request, pk):
+    task = Tasks.objects.get(pk=pk)
+    form = SetNewDueDateForm
+    if request.method == "POST":
+        form = SetNewDueDateForm(request.POST)
+        if form.is_valid():
+            task.due_date = form.cleaned_data['due_date']
+            task.save()
+            context = {
+                'task': task,
+                'form_date': form,
+            }
+            return redirect('dashboard')
+    return render(request, 'tasks/setting_new_due_date.html', {'form': form, 'task': task})
+
+def choose_time_set_option(request, pk):
+    task = Tasks.objects.get(pk=pk)
+    return render(request, 'tasks/adding_time_options.html', {'task': task})
 
 def overdue(request):
     user_profile = get_object_or_404(Profile, user=request.user)

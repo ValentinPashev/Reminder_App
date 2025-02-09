@@ -1,0 +1,15 @@
+{% extends 'common/base.html' %}
+{% block content %}
+    <div class="single-date-form">
+        <h1>Task Name: {{ task.name }}</h1>
+        <h1>Setting a new Due Date</h1>
+        <form method="post" action="{% url 'set_new_due_date' task.pk %}">
+            {{ form }}
+            {% csrf_token %}
+            <label for="date">Set new Due date:</label>
+            <button type="submit">Set</button>
+        </form>
+    <h3>&#x2022; Please note that setting a new due date to certain task needs to be approved from project manager or team 
+        leader! Any type of increasing time without permission will be sanctioned!</h3>
+    </div>
+{% endblock %}
