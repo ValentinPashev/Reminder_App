@@ -1,23 +1,19 @@
 from __future__ import absolute_import, unicode_literals
 import os
 from celery import Celery
-from celery.schedules import crontab
 
+# Set the default Django settings module for the 'celery' program.
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Reminder_app.settings')
 
 app = Celery('Reminder_app')
 
+# Using a string here means the worker doesn't have to serialize
+# the configuration object to child processes.
 app.config_from_object('django.conf:settings', namespace='CELERY')
 
+# Look for tasks in the application.
 app.autodiscover_tasks()
 
-
-app.conf.beat_schedule = {
-    'check-due-tasks-every-minute': {
-        'task': 'tasks.check_due_tasks',
-        'schedule': crontab(minute='*/1'),
-    },
-}
 
 @app.task(bind=True)
 def debug_task(self):
