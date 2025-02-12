@@ -1,10 +1,11 @@
 from celery import shared_task
 from datetime import timedelta
-from django.utils import timezone
 from accounts.models import Profile
 from tasks_app.models import Tasks
 from plyer import notification
 import platform
+from celery.schedules import crontab
+from django.utils import timezone
 
 
 @shared_task

@@ -58,3 +58,11 @@ class Profile(models.Model):
         max_length=100,
     )
 
+    occupation = models.CharField(
+        max_length=100,
+        null=True,
+        blank=True,
+    )
+
+
+
