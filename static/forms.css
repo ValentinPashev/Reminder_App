@@ -122,7 +122,10 @@ p {
     border-radius: 10px;
     padding: 20px;
     position: relative;
+    justify-content: center;
 }
+
+
 
 .custom-delete-form {
     width: 25%;
@@ -165,11 +168,27 @@ p {
     color: #333;
     transition: border-color 0.3s, box-shadow 0.3s;
     text-align: center;
+
 }
 
 .custom-create-form input[type="date"]:focus {
     border-color: #007bff;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+.custom-create-form input[type="number"] {
+    transition: all 0.3s ease-in-out;
+    width: 15%;
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.custom-create-form input[type="number"]:focus {
+    width: 25%;
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
     outline: none;
 }
 
@@ -208,15 +227,15 @@ p {
 }
 
 .danger-box {
-    background-color: #ffcccc; /* Светло червен фон */
-    color: #cc0000; /* Тъмен червен текст */
-    border: 1px solid #cc0000; /* Червена рамка */
-    padding: 15px; /* Отстояние вътре в кутията */
-    text-align: center; /* Центриран текст */
-    font-weight: bold; /* Удебелен текст */
-    border-radius: 8px; /* Заоблени ъгли */
-    max-width: 400px; /* Максимална ширина */
-    margin: 20px auto; /* Центриране по хоризонтала */
+    background-color: #ffcccc;
+    color: #cc0000;
+    border: 1px solid #cc0000;
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 8px;
+    max-width: 400px;
+    margin: 20px auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -224,8 +243,8 @@ p {
 }
 
 .danger-box .icon {
-    font-size: 40px; /* По-голям размер на иконата */
-    margin-bottom: 5px; /* Разстояние между иконата и текста */
+    font-size: 40px;
+    margin-bottom: 5px;
 }
 
 
@@ -258,7 +277,7 @@ p {
 }
 
 .single-date-form input[type="date"]::-webkit-calendar-picker-indicator {
-    filter: invert(1); /* За по-добър изглед в тъмни дизайни */
+    filter: invert(1);
 }
 
 .single-date-form button {
