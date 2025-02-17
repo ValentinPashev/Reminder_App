@@ -63,5 +63,10 @@ class Profile(models.Model):
         default='unspecified'
     )
 
+    connections = models.ManyToManyField(
+        "self",
+        symmetrical=False,
+        blank=True)
+
 
 
