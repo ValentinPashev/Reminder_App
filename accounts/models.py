@@ -70,3 +70,11 @@ class Profile(models.Model):
 
 
 
+class Message(models.Model):
+    sender = models.ForeignKey(
+        Profile,
+        on_delete=models.CASCADE,
+        related_name="sent_messages"
+    )
+
+    content = models.TextField()
