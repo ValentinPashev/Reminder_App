@@ -23,7 +23,14 @@ def profile_information_view(request):
     ])
 
     if is_profile_complete:
-        pass
+        activity_logs = profile.activity_logs.all()
+        context = {
+            'profile': profile,
+            'activity_logs': activity_logs,
+        }
+
+        return context
+    #TODO: html template for this!!!
 
     else:
         if request.method == 'POST':
